@@ -292,7 +292,11 @@ class Store:
             raise ItemUnknownError()
         return i
 
+<<<<<<< Updated upstream
     def stock(self, name, count, price):
+=======
+    def stock(self, name, count, price=None):
+>>>>>>> Stashed changes
         """
         Add a stock record.
 
@@ -305,7 +309,14 @@ class Store:
             PriceMismatchError: If a stock record with same name
                 but different price already exists.
         """
+<<<<<<< Updated upstream
         i = self.add_item(name, price)
+=======
+        if price == None:
+            i = self.find_item(name)
+        else:
+            i = self.add_item(name, price)
+>>>>>>> Stashed changes
         self._stock_records.append(StockRecord(i, count, datetime.now()))
         self.update_statistic(i, count)
 
